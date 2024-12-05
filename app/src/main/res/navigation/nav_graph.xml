@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/TitleScreenFragment">
+
+    <fragment
+        android:id="@+id/TriviaScreenFragment"
+        android:name="com.example.navigationlibrary.TriviaFragment"
+        android:label="TriviaFragment"
+        tools:layout="@layout/fragment_trivia_screen" >
+        <action
+            android:id="@+id/action_TriviaScreenFragment_to_TryAgainScreenFragment"
+            app:destination="@id/TryAgainScreenFragment" />
+        <action
+            android:id="@+id/action_TriviaScreenFragment_to_winFragment"
+            app:destination="@id/winFragment"
+            app:popUpTo="@id/TitleScreenFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/TitleScreenFragment"
+        android:name="com.example.navigationlibrary.TitleScreenFragment"
+        android:label="fragment_second_screen"
+        tools:layout="@layout/fragment_title_screen" >
+        <action
+            android:id="@+id/action_TitleScreenFragment_to_TriviaScreenFragment"
+            app:destination="@id/TriviaScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/TryAgainScreenFragment"
+        android:name="com.example.navigationlibrary.ThirdScreenFragment"
+        android:label="fragment_third_screen"
+        tools:layout="@layout/fragment_third_screen" >
+        <action
+            android:id="@+id/action_TryAgainScreenFragment_to_TriviaScreenFragment"
+            app:destination="@id/TriviaScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/winFragment"
+        android:name="com.example.navigationlibrary.WinFragment"
+        android:label="fragment_win"
+        tools:layout="@layout/fragment_win" >
+        <action
+            android:id="@+id/action_winFragment_to_TitleScreenFragment"
+            app:destination="@id/TitleScreenFragment"
+            app:popUpTo="@id/TitleScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
